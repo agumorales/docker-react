@@ -1,7 +1,10 @@
+
 sudo: require
 service:
-    - docker
+   - docker
 
 before_install:
-    - docker build -t agumorales/docker-react -f Dockerfile.dev .
+   - docker build -t agumorales/docker-react -f Dockerfile.dev .
 
+script:
+   - docker run -e CI=true agumorales/docker-react npm run test
